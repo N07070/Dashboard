@@ -1,0 +1,12 @@
+{
+  "name" : "core",
+  "version" : 0.1,
+  "license" : "GPL-v3",
+  "author" : "@n07070",
+  "description" : "A small test plugin.",
+  "settings" : {
+    "height" : 3,
+    "width" : 4,
+    "auto-update" : true
+  }
+}
