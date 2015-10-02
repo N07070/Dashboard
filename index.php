@@ -105,11 +105,11 @@ function load_plugin($the_plugin_name){
 
 function load_global_ui($position){
     if ($position == "top") {
-        # code...
+        include('assets/html/header.html');
     } elseif ($position == "bottom") {
-        # code...
+        include('assets/html/footer.html');
     }else {
-        # code...
+        echo("You fucked up something.");
     }
 
 }
