@@ -1,17 +1,18 @@
 <?php
 
-// Get a list of the all the plugins in the plugins/ Directory
+load_global_ui("top");
 
-    // read the configuration.json file, and for each plugin name that's activated :
-    $configuration = activate_plugins();
+validate_plugins(activate_plugins());
 
-    validate_plugins($configuration);
-
+load_global_ui("bottom");
 function activate_plugins(){
-    $configuration_file = fopen("config.json", "r") or die("Unable to open configuration file! Is it there ?");
-        $list_of_activated_plugins = json_decode(fread($configuration_file, filesize("config.json")), true);
-    fclose($configuration_file);
-
+    if(!file_exists("config.json")) {
+        die("Unable to open configuration file! Is it there ?");
+    } else {
+        $configuration_file = fopen("config.json", "r");
+            $list_of_activated_plugins = json_decode(fread($configuration_file, filesize("config.json")), true);
+        fclose($configuration_file);
+    }
     return $list_of_activated_plugins;
 }
 
@@ -27,10 +28,16 @@ function validate_plugins($configuration){
 
             $valid_plugin_config = 0;
 
-            // Read it's plugin_name.json settings file
-            $plugin_config_file = fopen("plugins/".$plugin_name."/".$plugin_name.".json", "r") or die("Unable to open configuration file for ".$plugin_name."! Is it there ?");
-                $plugin_configuration = json_decode(fread($plugin_config_file, filesize("plugins/".$plugin_name."/".$plugin_name.".json")), true);
-            fclose($plugin_config_file);
+            if(!file_exists("plugins/".$plugin_name."/".$plugin_name.".json")) {
+                error_log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m Unable to find the config file for : ".$plugin_name." ! Is it there ?");
+                error_log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m The plugin : ".$plugin_name." has not been loaded because of a missing ".$plugin_name.".json file.");
+                continue;
+            } else {
+                // Read it's plugin_name.json settings file
+                $plugin_config_file = fopen("plugins/".$plugin_name."/".$plugin_name.".json", "r");
+                    $plugin_configuration = json_decode(fread($plugin_config_file, filesize("plugins/".$plugin_name."/".$plugin_name.".json")), true);
+                fclose($plugin_config_file);
+            }
 
             // We make sure that every field in the plugin config is valid.
             foreach ($plugin_configuration as $plugin_config_name => $plugin_config_value) {
@@ -96,4 +103,14 @@ function load_plugin($the_plugin_name){
 
 }
 
+function load_global_ui($position){
+    if ($position == "top") {
+        # code...
+    } elseif ($position == "bottom") {
+        # code...
+    }else {
+        # code...
+    }
+
+}
 ?>
