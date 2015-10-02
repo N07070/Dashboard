@@ -30,44 +30,34 @@
                     // check if name is a string and the name of the plugin in the config.json file && check if the version is a number and > 0.
                     if (is_string($plugin_configuration["name"]) && is_numeric($plugin_configuration["version"]) && $plugin_configuration["version"] > 0) {
 
-                            // // check if the license is a string
-                            // if (c) {
-                            //
-                            //     // check if the author is a string
-                            //     if (condition) {
-                            //
-                            //         // check if the description is a string
-                            //         if (condition) {
-                            //             # code...
-                            //         } else {
-                            //             # code...
-                            //         }
-                            //
-                            //     } else {
-                            //         # code...
-                            //     }
-                            //
-                            // } else {
-                            //     # code...
-                            // }
+                        // Check if the license, author and description are strings.
+                        if (is_string($plugin_configuration["license"]) && is_string($plugin_configuration["author"]) && is_string($plugin_configuration["description"]) {
 
+                            // Check if the settings is an array
+                            if (is_array($plugin_configuration["settings"])) {
+
+                                // check if settings[height] is an int, settings[width] is an int, settings[auto-update] is a boolean
+                                if (is_int($plugin_configuration["settings"]["height"]) && is_int($plugin_configuration["settings"]["width"]) && is_bool($plugin_configuration["settings"]["auto-update"])) {
+                                    
+                                    error_log("[ OK ] The plugin : ".$plugin_name." has been loaded and is ready for use.", 0);
+
+                                } else {
+                                    error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file : the height, width should be ints, and auto-update a boolean", 0);
+                                }
+                            } else {
+                                error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file : settings should contain the height, width and auto-update value.", 0);
+                            }
+                        } else {
+                            error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file : the license, author and description should be a string.", 0);
+                        }
                     } else {
-                        error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file.", 0);
+                        error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file : the name should be a string, the version a number.", 0);
                     }
-
-                        // check if the settings is an array
-
-                        // check if settings[height] is an int
-
-                        // check if settings[width] is an int
-
-                        // check if settings[auto-update] is a boolean
-                    error_log("[ OK ] The plugin : ".$plugin_name." has been loaded and is ready for use.", 0);
                 } else {
-                    error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file.", 0);
+                    error_log("[ ER ] The plugin : ".$plugin_name." has an invalid config file: it should be made like the core plugin.", 0);
                 }
-                    // If it's correct, then get it's plugin_name.html file, and it's plugin_name.js include that into a <div>
 
+                    // If it's correct, then get it's plugin_name.html file, and it's plugin_name.js include that into a <div>
                     // Render the plugin or an error message.
             } else {
                 error_log("[ ER ] The plugin : ".$plugin_name." is not activated ! Skipping...", 0);
