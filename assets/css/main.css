@@ -3,6 +3,7 @@
 
 .plugin .title{
     text-transform: capitalize;
+    border-bottom: lightgrey solid 1px;
 }
 
 @import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
