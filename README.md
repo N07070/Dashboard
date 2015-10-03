@@ -2,6 +2,8 @@
 
 A small web dashboard for everything you need, at a glance. Free, as in Freedom.
 
+![](./assets/img/readmeimg.png)
+
 ## Features
 
 The Dashboard is a small website created in php and JS. It's supposed to be run via a command-line, at least for the moment. It works around plugins, disposed by material cards.
@@ -9,6 +11,11 @@ The Dashboard is a small website created in php and JS. It's supposed to be run 
 You want to see your twitter feed ? Just make a plugin for it. You want to be able to see the forecast ? Just add a plugin. You just want to display something useful ? They is a plugin for that.
 
 As making a plugin is **very** easy, I encourage you to make any plugin you seem interesting. Just submit a pull request and I'll add it to the official list of plugins !
+
+## How to run it ?
+
+Please note that this is still in development. Therefore, the only way for the moment is to run `php -S localhost:8080` ( using php-cli ) in a terminal when you are located in your Dashboard/. It give you debug output.
+Then, open your browser and go to <http://localhost:80808>.
 
 ## Plugins
 
@@ -87,4 +94,4 @@ Long awnser : Well, it depends ? Would you like your plugin to behave like that 
 
 * **Core** : The first plugin, and the base of all the others. Does nothing more than display text. Use it to learn how to make your own plugins !
 * **Time** : Displays the current time. More of a test in JQuery and JS than something you would like to use.
-* **Bananas** : And this is why I started writing guidelines. 
+* **Bananas** : And this is why I started writing guidelines.
