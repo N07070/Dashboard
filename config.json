@@ -1,5 +1,6 @@
 {
     "core" : true,
-    "bananas" : false,
-    "time" : true
+    "bananas" : true,
+    "time" : true,
+    "twitter-search-plugin" : true
 }

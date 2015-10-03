@@ -64,7 +64,7 @@ function validate_plugins($configuration){
                                 // error_log("\n> [".$plugin_configuration['name']."]\n  [Version] > ".$plugin_configuration['version']."\n  [Author] > ".$plugin_configuration['author']."\n  [Description] > ".$plugin_configuration['description']);
 
                                 // When we made sure that the plugin config file is okay, we load it and render it.
-                                load_plugin($plugin_name,$plugin_configuration["settings"]["width"]);
+                                load_plugin($plugin_name,$plugin_configuration["settings"]["width"],$plugin_configuration["name"]);
 
 
                             } else {
@@ -89,7 +89,7 @@ function validate_plugins($configuration){
     }
 }
 
-function load_plugin($the_plugin_name,$plugin_width){
+function load_plugin($the_plugin_name,$plugin_width,$plugin_display_name){
     // If it's correct, then get it's plugin_name.html file, include that into a <div>
     $plugin_html_file = fopen("plugins/".$the_plugin_name."/".$the_plugin_name.".html", "r") or die("Unable to open configuration file for ".$the_plugin_name."! Is it there ?");
         $plugin_html_core = fread($plugin_html_file, filesize("plugins/".$the_plugin_name."/".$the_plugin_name.".html"));
@@ -98,7 +98,7 @@ function load_plugin($the_plugin_name,$plugin_width){
     echo("
         <div class='plugin card col-md-".$plugin_width."'>
             <div id='".$the_plugin_name."'>
-            <span class='title'>".$the_plugin_name."</span>
+            <span class='title'>".$plugin_display_name."</span>
                 <div class='content'>
                 ".$plugin_html_core."
                 </div>
