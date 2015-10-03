@@ -10,12 +10,12 @@ The Dashboard is a small website created in php and JS. It's supposed to be run 
 
 You want to see your twitter feed ? Just make a plugin for it. You want to be able to see the forecast ? Just add a plugin. You just want to display something useful ? They is a plugin for that.
 
-As making a plugin is **very** easy, I encourage you to make any plugin you seem interesting. Just submit a pull request and I'll add it to the official list of plugins !
+As making a plugin is **very** easy, I encourage you to make any plugin you think interesting. Just submit a pull request and I'll add it to the official list of plugins !
 
 ## How to run it ?
 
-Please note that this is still in development. Therefore, the only way for the moment is to run `php -S localhost:8080` ( using php-cli ) in a terminal when you are located in your Dashboard/. It give you debug output.
-Then, open your browser and go to <http://localhost:80808>.
+Please note that this is still in development. Therefore, the only way for the moment is to run `php -S localhost:8080` ( using php-cli ) in a terminal when you are located in your Dashboard/, or any other php server. It gives you debug output.
+Then, open your browser and go to <http://localhost:8080>.
 
 ## Plugins
 
@@ -51,7 +51,7 @@ It's so freaking easy. First of all, you need a name. Choose it carefully becaus
 
 ```
 
-In the div, you should display all your information, all the html ought to be in that div. In the script tags, you load you javascript, and in the second one, you use that one function.
+In the div, you should display all your information, all the html ought to be in that div. In the script tags, you load your javascript, and in the second one, you use that one function.
 
 ##### In the js file, the markup should be something like this :
 
@@ -95,3 +95,4 @@ Long awnser : Well, it depends ? Would you like your plugin to behave like that 
 * **Core** : The first plugin, and the base of all the others. Does nothing more than display text. Use it to learn how to make your own plugins !
 * **Time** : Displays the current time. More of a test in JQuery and JS than something you would like to use.
 * **Bananas** : And this is why I started writing guidelines.
+* **Twitter Search** : A plugin that displays a specific twitter search results.
