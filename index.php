@@ -58,13 +58,13 @@ function validate_plugins($configuration){
                         if (is_array($plugin_configuration["settings"])) {
 
                             // check if settings[height] is an int, settings[width] is an int, settings[auto-update] is a boolean
-                            if (is_int($plugin_configuration["settings"]["height"]) && is_int($plugin_configuration["settings"]["width"]) && is_bool($plugin_configuration["settings"]["auto-update"])) {
+                            if (is_int($plugin_configuration["settings"]["height"]) && is_int($plugin_configuration["settings"]["width"]) && $plugin_configuration["settings"]["width"] <= 12 && is_bool($plugin_configuration["settings"]["auto-update"])) {
 
                                 error_log("\x1b[32m\x1b[1m[ ✔️ ]\x1b[0m The plugin : ".$plugin_name." has been loaded and is ready for use.", 0);
                                 // error_log("\n> [".$plugin_configuration['name']."]\n  [Version] > ".$plugin_configuration['version']."\n  [Author] > ".$plugin_configuration['author']."\n  [Description] > ".$plugin_configuration['description']);
 
                                 // When we made sure that the plugin config file is okay, we load it and render it.
-                                load_plugin($plugin_name);
+                                load_plugin($plugin_name,$plugin_configuration["settings"]["width"]);
 
 
                             } else {
@@ -89,15 +89,22 @@ function validate_plugins($configuration){
     }
 }
 
-function load_plugin($the_plugin_name){
+function load_plugin($the_plugin_name,$plugin_width){
     // If it's correct, then get it's plugin_name.html file, include that into a <div>
     $plugin_html_file = fopen("plugins/".$the_plugin_name."/".$the_plugin_name.".html", "r") or die("Unable to open configuration file for ".$the_plugin_name."! Is it there ?");
         $plugin_html_core = fread($plugin_html_file, filesize("plugins/".$the_plugin_name."/".$the_plugin_name.".html"));
     fclose($plugin_html_file);
 
-    echo("<div>
-        ".$plugin_html_core."
-    </div>");
+    echo("
+        <div class='plugin card col-md-".$plugin_width."'>
+            <div id='".$the_plugin_name."'>
+            <span class='title'>".$the_plugin_name."</span>
+                <div class='content'>
+                ".$plugin_html_core."
+                </div>
+            </div>
+        </div>"
+    );
     // Render the plugin or an error message.
 
 

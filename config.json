@@ -1,5 +1,5 @@
 {
     "core" : true,
-    "twitter-api-client" : true,
-    "bananas" : true
+    "bananas" : false,
+    "time" : true
 }

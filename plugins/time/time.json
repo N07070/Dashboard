@@ -6,7 +6,7 @@
   "description" : "A small test plugin.",
   "settings" : {
     "height" : 3,
-    "width" : 4,
+    "width" : 2,
     "auto-update" : true
   }
 }
