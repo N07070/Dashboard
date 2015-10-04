@@ -13,6 +13,94 @@
     <link href="./assets/css/main.css" rel="stylesheet">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <script src="./assets/js/jquery-2.1.4.min.js"></script>
+  
+    <!-- Core JS -->
+    <script> 
+      function main() {
+        var xobj = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+	xobj.overrideMimeType("application/json");
+        xobj.open('GET', 'config.json', true);
+	xobj.onreadystatechange = function() {
+	  if(xobj.status == 404) {
+            console.log('config.json missing');
+	  }
+	  
+	  if(xobj.readyState == 4) {
+            loadPlugins(JSON.parse(xobj.responseText));
+	  }
+        }
+        xobj.send(null);
+      }
+
+      function loadPlugins(config) {
+        var plugins = "Working plugins: \n";
+        
+	//For each plugin in config.json, get its name and validate it and then load it
+	for(var key in config) {
+	  if(config.hasOwnProperty(key) && validatePlugin(key,config[key])) {
+	    plugins += key + ' ';
+	  }
+	}
+
+	alert(plugins);
+      }
+
+      function validatePlugin(pluginName, pluginValue) {
+        if(pluginValue == false) {
+	  console.log(pluginName + " is not enabled");
+          return false;
+        }
+        
+        var error = false;
+
+        var xobj = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', 'plugins/' + pluginName + '/' + pluginName + '.json', true);
+        xobj.onreadystatechange = function() {          
+          if(xobj.status == 404) {
+            console.log(pluginName + ' is missing a config file');
+            error = true;
+     	    return;
+	  }
+
+	  if(xobj.readyState == 4) {
+	    var pluginConfig = JSON.parse(xobj.responseText);
+            var checkCounter = 0;
+	    for(var key in pluginConfig) {
+              if(pluginConfig.hasOwnProperty(key)) {
+	        if(key == 'name' || key == 'version' || key == 'license' || key == 'author' || key == 'description' || key == 'settings') {
+                  checkCounter++; 
+                }
+	      }
+	    }
+
+	    if(checkCounter == 6) {
+	      if(pluginConfig['version'] <= 0) {
+	        error = true;
+	        console.log(pluginName + '\'s version numer is not positive');
+	        return;
+	      }
+
+              loadPlugin(pluginName, pluginConfig);
+	    }
+            else {
+	      error = true;
+              return;
+            }
+          } 
+        }
+        xobj.send(null);
+
+	return !error;
+      }
+
+      //Actually load the pluginName.html file
+      function loadPlugin(pluginName, pluginConfig) {
+        //TODO
+      }
+
+      window.onload = main
+    </script>
   </head>
 
   <body>
