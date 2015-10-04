@@ -81,7 +81,10 @@
 	        return;
 	      }
 
-              loadPlugin(pluginName, pluginConfig);
+              if(loadPlugin(pluginName, pluginConfig)) {
+                error = true;
+		return;
+	      }
 	    }
             else {
 	      error = true;
@@ -96,7 +99,27 @@
 
       //Actually load the pluginName.html file
       function loadPlugin(pluginName, pluginConfig) {
-        //TODO
+        var error = false;
+	
+	var xobj = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', 'plugins/' + pluginName + '/' + pluginName + '.html', true);
+	xobj.onreadystatechange = function() {
+          if(xobj.status == 404) {
+            console.log('Unable to open body file for ' + pluginName + '! Is it there?')
+	    error = true;
+	    return;
+	  }
+
+	  if(xobj.readyState == 4) {
+            var pluginText = xobj.responseText;
+            var textToInsert = "<div class='plugin card col-md-" + pluginConfig['settings'].width + "> <div id='" + pluginName + "> <span class='title'>" + pluginConfig['name'] + "</span> <div class='content'>" + pluginText + "</div> </div> </div>"
+	    $('#plugins').append(textToInsert);
+          }
+        }
+        xobj.send(null);
+
+	return error;
       }
 
       window.onload = main
@@ -104,7 +127,7 @@
   </head>
 
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="plugins">
     </div> <!-- /container -->
 
 
