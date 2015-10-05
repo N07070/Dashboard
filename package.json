@@ -1,0 +1,16 @@
+{
+  "name": "Dashboard",
+  "version": "0.0.2",
+  "description": " A small web dashboard for everything you need, at a glance. Free and Open-Source.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "N07070",
+  "window": {
+    "toolbar": false,
+    "width": 800,
+    "height": 500
+  },
+  "license": "GPL-v3",
+}
