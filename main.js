@@ -4,7 +4,7 @@ function main() {
   xobj.open('GET', 'config.json', true);
   xobj.onreadystatechange = function() {
     if(xobj.status == 404) {
-      console.log('config.json missing');
+      console.log('\x1b[31m\x1b[1m[ ❌ ]\x1b[0m config.json missing');
     }
 
     if(xobj.readyState == 4) {
@@ -25,16 +25,16 @@ function loadPlugins(config) {
 
 function validatePlugin(pluginName, pluginValue) {
   if(pluginValue == false) {
-    console.log(pluginName + " is not enabled");
+    console.log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m" + pluginName + " is not enabled");
     return;
-  }      
+  }
 
   var xobj = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
   xobj.overrideMimeType("application/json");
   xobj.open('GET', 'plugins/' + pluginName + '/' + pluginName + '.json', true);
-  xobj.onreadystatechange = function() {          
+  xobj.onreadystatechange = function() {
     if(xobj.status == 404) {
-      console.log(pluginName + ' is missing a config file');
+      console.log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m" + pluginName + ' is missing a config file');
       return;
     }
 
@@ -44,14 +44,14 @@ function validatePlugin(pluginName, pluginValue) {
       for(var key in pluginConfig) {
         if(pluginConfig.hasOwnProperty(key)) {
 	  if(key == 'name' || key == 'version' || key == 'license' || key == 'author' || key == 'description' || key == 'settings') {
-            checkCounter++; 
+            checkCounter++;
           }
 	}
       }
 
       if(checkCounter == 6) {
         if(pluginConfig['version'] <= 0) {
-          console.log(pluginName + '\'s version numer is not positive');
+          console.log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m" + pluginName + '\'s version numer is not positive');
           return;
         }
 
@@ -60,22 +60,23 @@ function validatePlugin(pluginName, pluginValue) {
         }
       }
       else {
+        console.log("\x1b[32m\x1b[1m[ ✔️ ]\x1b[0m" + pluginName + '\' has loaded !');
         return;
       }
-    } 
+    }
   }
   xobj.send(null);
 
 }
 
 //Actually load the pluginName.html file
-function loadPlugin(pluginName, pluginConfig) {	
+function loadPlugin(pluginName, pluginConfig) {
   var xobj = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
   xobj.overrideMimeType("application/json");
   xobj.open('GET', 'plugins/' + pluginName + '/' + pluginName + '.html', true);
   xobj.onreadystatechange = function() {
     if(xobj.status == 404) {
-      console.log('Unable to open body file for ' + pluginName + '! Is it there?')
+      console.log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m" + 'Unable to open body file for ' + pluginName + '! Is it there?')
       return;
     }
 
@@ -88,4 +89,4 @@ function loadPlugin(pluginName, pluginConfig) {
   xobj.send(null);
 }
 
-window.onload = main    
+window.onload = main
