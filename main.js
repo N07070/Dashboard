@@ -82,7 +82,7 @@ function loadPlugin(pluginName, pluginConfig) {
 
     if(xobj.readyState == 4) {
       var pluginText = xobj.responseText;
-      var textToInsert = "<div class='plugin card col-md-" + pluginConfig['settings'].width + " id='" + pluginName + "> <span class='title'>" + pluginConfig['name'] + "</span> <div class='content'>" + pluginText + " </div> </div>"
+      var textToInsert = "<div class='plugin card col-md-" + pluginConfig['settings'].width + "' id='" + pluginName + "'> <span class='title'>" + pluginConfig['name'] + "</span> <div class='content'>" + pluginText + " </div> </div>"
       $('#plugins').append(textToInsert);
     }
   }
