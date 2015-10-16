@@ -51,7 +51,7 @@ function validatePlugin(pluginName, pluginValue) {
 
       if(checkCounter == 6) {
         if(pluginConfig['version'] <= 0) {
-          console.log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m" + pluginName + '\'s version number is not positive: ' +  pluginConfig['version']);
+          console.log("\x1b[31m\x1b[1m[ ❌ ]\x1b[0m" + pluginName + "\'s version number is not positive: " +  pluginConfig['version']);
           return;
         }
 
@@ -60,7 +60,7 @@ function validatePlugin(pluginName, pluginValue) {
         }
       }
       else {
-        console.log("\x1b[32m\x1b[1m[ ✔️ ]\x1b[0m" + pluginName + '\' has loaded!');
+        console.log("\x1b[32m\x1b[1m[ ✔️ ]\x1b[0m" + pluginName + " has loaded!");
         return;
       }
     }
