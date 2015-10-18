@@ -1,3 +1,5 @@
+var load_status = 0;
+
 function main() {
   var xobj = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
   xobj.overrideMimeType("application/json");
@@ -9,6 +11,8 @@ function main() {
 
     if(xobj.readyState == 4) {
       loadPlugins(JSON.parse(xobj.responseText));
+      $('.progress-bar').css({"width":"100%"});
+      $("#page_loading").addClass('hidden');
     }
   }
   xobj.send(null);
@@ -19,8 +23,11 @@ function loadPlugins(config) {
   for(var key in config) {
     if(config.hasOwnProperty(key)) {
       validatePlugin(key,config[key]);
+      load_status += 1
     }
   }
+  load_status = (80/load_status)*load_status;
+  $('.progress-bar').css({"width": load_status + "%"});
 }
 
 function validatePlugin(pluginName, pluginValue) {
@@ -83,7 +90,7 @@ function loadPlugin(pluginName, pluginConfig) {
 
     if(xobj.readyState == 4) {
       var pluginText = xobj.responseText;
-      var textToInsert = "<div class='plugin card col-md-" + pluginConfig['settings'].width + "' id='" + pluginName + "'> <span class='title'>" + pluginConfig['name'] + "</span> <div class='content'>" + pluginText + " </div> </div>"
+      var textToInsert = "<div class='card col-md-" + pluginConfig['settings'].width + "' id='" + pluginName + "'> <span class='title'>" + pluginConfig['name'] + "</span> <div class='content'>" + pluginText + " </div> </div>"
       $('#plugins').append(textToInsert);
     }
   }
