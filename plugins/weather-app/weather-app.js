@@ -1,5 +1,5 @@
 // Please enter the name of your city here.
-var city = "Berlin";
+var city = "Binn";
 
 function weather_app(){
 
@@ -10,14 +10,14 @@ function weather_app(){
         console.log("[ weather-app ] Got the weather data !");
 
         $('#weather-app-city').text(city);
-        
+
         $('#weather-app-now').text(data.weather[0]["main"]);
         if (data.weather[0]["id"] === 800) {
-            $('#weather-app-image').attr("src","../plugins/weather-app/img/sunny1.png");
+            $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-sunny.png");
         }
         else if ( data.weather[0]["id"] >= 900 && data.weather[0]["id"] <= 906) {
             // Extreme !
-            $('#weather-app-image').attr("src","../plugins/weather-app/img/weahter-lightning.png");
+            $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-lightning.png");
         }else if (data.weather[0]["id"] >= 800 && data.weather[0]["id"] <= 804) {
             // Clouds !
             $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-cloudy.png");
@@ -29,10 +29,10 @@ function weather_app(){
             $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-snowy.png");
         }else if (data.weather[0]["id"] >= 500 && data.weather[0]["id"] <= 531) {
             // Rain
-            $('#weather-app-image').attr("src","../plugins/weather-app/img/weathe-rainy.png");
+            $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-rainy.png");
         }else if (data.weather[0]["id"] >= 300 && data.weather[0]["id"] <= 321) {
             // Drizzle
-            $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-sunny.png");
+            $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-partlycloudy.png");
         }else if (data.weather[0]["id"] >= 200 && data.weather[0]["id"] <= 232) {
             // THUNDER !
             $('#weather-app-image').attr("src","../plugins/weather-app/img/weather-lightning.png");

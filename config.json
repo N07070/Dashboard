@@ -1,7 +1,7 @@
 {
     "core" : true,
+    "weather-app" : true,
     "bananas" : true,
     "time" : true,
-    "twitter-search-plugin" : true,
-    "weather-app" : true
+    "twitter-search-plugin" : true
 }
