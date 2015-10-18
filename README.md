@@ -94,5 +94,6 @@ Long awnser : Well, it depends ? Would you like your plugin to behave like that 
 
 * **Core** : The first plugin, and the base of all the others. Does nothing more than display text. Use it to learn how to make your own plugins !
 * **Time** : Displays the current time. More of a test in JQuery and JS than something you would like to use.
+* **Weather App** : Do you want to know the current weather in your city ? Well, this app will display it for you !
 * **Bananas** : And this is why I started writing guidelines.
 * **Twitter Search** : A plugin that displays a specific twitter search results.
