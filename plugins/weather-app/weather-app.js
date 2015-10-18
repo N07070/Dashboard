@@ -7,7 +7,10 @@ function weather_app(){
     var weather;
 
     $.getJSON(open_weather_api, function(data){
-        console.log(data);
+        console.log("[ weather-app ] Got the weather data !");
+
+        $('#weather-app-city').text(city);
+        
         $('#weather-app-now').text(data.weather[0]["main"]);
         if (data.weather[0]["id"] === 800) {
             $('#weather-app-image').attr("src","../plugins/weather-app/img/sunny1.png");
