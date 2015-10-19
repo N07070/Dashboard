@@ -3,5 +3,6 @@
     "weather-app" : true,
     "bananas" : true,
     "time" : true,
-    "twitter-search-plugin" : true
+    "twitter-search-plugin" : true,
+    "computer-information" : false
 }
