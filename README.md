@@ -17,6 +17,8 @@ As making a plugin is **very** easy, I encourage you to make any plugin you thin
 Please note that this is still in development. Therefore, the only way for the moment is to run any local server in the directory where Dashboard is saved.
 Then, open your browser and go to <http://localhost:8080>.
 
+You can also try it out at <http://n07070.github.io/Dashboard>
+
 ## Plugins
 
 A plugin is displayed as a card on the Dashboard. It's a small, smart and useful way to display information for your day.

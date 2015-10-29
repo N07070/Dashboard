@@ -4,5 +4,6 @@
     "bananas" : true,
     "time" : true,
     "twitter-search-plugin" : true,
+    "music-player" : true,
     "computer-information" : false
 }
