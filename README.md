@@ -86,9 +86,9 @@ Run the server, have fun !
 
 ### Can I do X ?
 
-Short awnser : yup !
+Short answer : yup !
 
-Long awnser : Well, it depends ? Would you like your plugin to behave like that ? Well, do it, as long as it's still *smart, small and useful*. Also, please note that if your plugin is badly done, I may not add it to the official plugins.
+Long answer : Well, it depends ? Would you like your plugin to behave like that ? Well, do it, as long as it's still *smart, small and useful*. Also, please note that if your plugin is badly done, I may not add it to the official plugins.
 
 ### Current list of plugins
 
@@ -96,4 +96,5 @@ Long awnser : Well, it depends ? Would you like your plugin to behave like that 
 * **Time** : Displays the current time. More of a test in JQuery and JS than something you would like to use.
 * **Weather App** : Do you want to know the current weather in your city ? Well, this app will display it for you !
 * **Bananas** : And this is why I started writing guidelines.
+* **Computer Information** : This plugin is more of a test than anything, and is not actived by default. It is used to display the information given by a RESTfull API, which is part of the [APy repo](https://github.com/N07070/APy).
 * **Twitter Search** : A plugin that displays a specific twitter search results.
