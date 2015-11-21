@@ -1,9 +1,9 @@
 {
     "core" : true,
-    "weather-app" : true,
-    "bananas" : true,
-    "time" : true,
-    "twitter-search-plugin" : true,
     "music-player" : true,
+    "time" : true,
+    "weather-app" : true,
+    "bananas" : false,
+    "twitter-search-plugin" : false,
     "computer-information" : false
 }

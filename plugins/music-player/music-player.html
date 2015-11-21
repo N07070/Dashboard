@@ -1,21 +1,147 @@
 <p>
-<input type="file">
+<div id="container" class="disabled">
 
-<div id="music-player-player">
+	<div id="wave"></div>
 
-    <div class="controls">
-        <button><i class="material-icons">skip_previous</i></button>
-        <button><i class="material-icons">play_circle_filled</i></button>
-        <button><i class="material-icons">skip_next</i></button>
-        <div> progress bar</div>
-    </div>
+	<div id="control-bar">
 
-    <div class="settings">
-        <button><i class="material-icons">settings</i></button>
-        <button><i class="material-icons">queue_music</i></button>
-    </div>
+		<div class="player-control">
+			<div id="previous-button" title="Previous"><i class="fa fa-fast-backward"></i></div>
+			<div id="play-button" title="Play"><i class="fa fa-play"></i></div>
+			<div id="pause-button" title="Pause"><i class="fa fa-pause"></i></div>
+			<div id="stop-button" title="Stop"><i class="fa fa-stop"></i></div>
+			<div id="next-button" title="Next"><i class="fa fa-fast-forward"></i></div>
+			<div id="shuffle-button" title="Shuffle Off"><i class="fa fa-random"></i></div>
+			<div id="repeat-button" title="Repeat Off"><i class="fa fa-refresh"><span>1</span></i></div>
+		</div>
+	</div>
+
+	<div id="drop-zone" class="hidden">Drag &amp; Drop Files Here</div>
+
 </div>
 
-</p>
+<script src="./plugins/music-player/js/wavesurfer.min.js"></script>
+<script src="./plugins/music-player/js/id3-minimized.js"></script>
 <script src="./plugins/music-player/music-player.js"></script>
 <script>music_player();</script>
+<style>
+#container #drop-zone{
+	z-index: 100;
+
+	background-color: rgba(11, 133, 161, 0.75);
+	color: #fff;
+	text-align: center;
+	font: bold 36px sans-serif;
+	line-height: 90vh;
+
+	transition: 0.4s;
+}
+
+#container #drop-zone.hidden{
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.6s;
+}
+
+
+/*	App flex container	*/
+
+#container{
+	height:100%;
+	background-color: #fff;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	font: bold 15px sans-serif;
+	overflow: hidden;
+}
+
+/*	Instructions	*/
+
+#container .instructions{
+	display: none;
+	position: absolute;
+	width: 280px;
+	font: 16px sans-serif;
+	color: #fff;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	margin-left: -140px;
+	margin-top: 280px;
+}
+
+#container.disabled .instructions{
+	display: block;
+}
+
+
+#container.disabled #wave{
+	display: none;
+}
+
+/*---------------------------
+	Player Control Bar
+----------------------------*/
+
+#container #control-bar{
+	display: -webkit-flex;
+	display: flex;
+	color: #3D464A;
+	text-align: left;
+
+	position: relative;
+	z-index: 10;
+
+}
+
+#container.disabled #control-bar{
+	pointer-events: none;
+}
+
+#container .player-control{
+	-webkit-flex: 2;
+	flex:2;
+	display: -webkit-flex;
+	display: flex;
+}
+
+#container .player-control div{
+	-webkit-flex: 1;
+	flex: 1;
+	background-color: #fff;
+	text-align: center;
+	line-height: 60px;
+	height: 100%;
+	cursor: pointer;
+}
+
+#container.disabled .player-control div{
+	color: #758389;
+}
+
+#shuffle-button,
+#repeat-button{
+	line-height: 60px;
+	color: #758389;
+	position: relative;
+}
+
+#shuffle-button.active,
+#repeat-button.active{
+	line-height: 60px;
+	color: #000;
+}
+
+#repeat-button i span{
+	display: none;
+	position: absolute;
+	font: bold 12px sans-serif;
+	color: rgb(71, 91, 118);
+	top: 6px;
+	left: 13px;
+}
+</style>
+</body>
+</html>
