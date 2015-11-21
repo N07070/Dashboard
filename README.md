@@ -29,7 +29,7 @@ A plugin should be three things :
 
 * *Smart* : It should provide useful information without me needing any interaction, or at least as little as possible.
 * *Small* : It should be small enough to not monopolize the entire dashboard, yet big enough to be relevant.
-* *Useful* : It should display something I want to know about. For example, I'd like to see a beautiful image of mountains display through the day. Can you do that ? Great !
+* *Useful* : It should display something I want to know about. For example, I'd like to see a beautiful image of mountains display through the day. Most of the time, if it fits into the UNIX philosophies : do one one thing and do it well, then it should be okay. Can you do that ? Great !
 
 ### How should I make one ?
 
