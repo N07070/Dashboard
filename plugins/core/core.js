@@ -1,3 +1,8 @@
 function core() {
-    $( "p.core" ).html( "Next Step..." )
+    $('#core').click(function() {
+        var r = confirm("Are you sure you want to hide this card ?");
+        if (r) {
+            $('#core').addClass('hidden');
+        }
+    });
 }

@@ -1,0 +1,12 @@
+{
+  "name" : "computer-information",
+  "version" : 0.1,
+  "license" : "GPL-V3",
+  "author" : "@n07070",
+  "description" : "Want information on your computer ? Also a test for a JSON RESTfull API",
+  "settings" : {
+    "height" : 3,
+    "width" : 2,
+    "auto-update" : true
+  }
+}

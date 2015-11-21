@@ -1,7 +1,8 @@
 function time() {
-    var start = new Date;
+
 
     setInterval(function() {
-        $('#time .time_now').text((new Date ));
+        var time = new Date;
+        $('#time .time_now').text(time.getHours() + ":"  + time.getMinutes() + ":" + time.getSeconds() );
     }, 1000);
 }

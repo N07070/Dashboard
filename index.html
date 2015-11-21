@@ -9,23 +9,37 @@
 
     <title>Dashboard</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- core CSS -->
+    <link href="./assets/css/jquery.materialripple.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <script src="./assets/js/jquery-2.1.4.min.js"></script>
-  
+
     <!-- Core JS -->
     <script src="./main.js"></script>
   </head>
 
-  <body>
+<body>
+    <div id="page_loading" class="">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 0%;">
+            <span class="sr-only">60% Complete</span>
+          </div>
+        </div>
+    </div>
+
+    </div>
     <div class="container-fluid" id="plugins">
     </div> <!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.materialripple.js"></script>
+    <script type="text/javascript">
+        $(function(){
+        	$(".card").materialripple();
+        });
+    </script>
   </body>
 </html>
