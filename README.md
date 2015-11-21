@@ -99,4 +99,5 @@ Long answer : Well, it depends ? Would you like your plugin to behave like that 
 * **Weather App** : Do you want to know the current weather in your city ? Well, this app will display it for you !
 * **Bananas** : And this is why I started writing guidelines.
 * **Computer Information** : This plugin is more of a test than anything, and is not actived by default. It is used to display the information given by a RESTfull API, which is part of the [APy repo](https://github.com/N07070/APy).
+* **Music** : A HTML5 music player that makes it easy to drap n' drop your own files to play with !
 * **Twitter Search** : A plugin that displays a specific twitter search results.
