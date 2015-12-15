@@ -3,8 +3,13 @@
   "version": "0.0.2",
   "description": " A small web dashboard for everything you need, at a glance. Free and Open-Source.",
   "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N07070/Dashboard.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron electron.js"
   },
   "author": "N07070",
   "window": {
@@ -12,5 +17,8 @@
     "width": 800,
     "height": 500
   },
-  "license": "GPL-v3"
+  "license": "GPL-v3",
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.0"
+  }
 }

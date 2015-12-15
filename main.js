@@ -1,3 +1,8 @@
+// Make jQuery load in case it is used by electron, or load it normally in case of a classic web server.
+if (typeof $ == 'undefined') {
+     window.$ = window.jQuery = require('jquery');
+}
+
 var load_status = 0;
 
 function main() {
