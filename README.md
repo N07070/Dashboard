@@ -15,9 +15,22 @@ As making a plugin is **very** easy, I encourage you to make any plugin you thin
 ## How to run it ?
 
 Please note that this is still in development. Therefore, the only way for the moment is to run any local server in the directory where Dashboard is saved.
-Then, open your browser and go to <http://localhost:8080>.
 
-You can also try it out at <http://n07070.github.io/Dashboard>
+**Install instructions**:
+* First, clone the project to the folder of your choice with git.
+    * `git clone https://github.com/N07070/Dashboard`
+* Then, go into the folder you just cloned.
+    * `cd Dashbord`
+* Adjust the config files.
+    * `vim config.json` and the .json files of each plugin in `plugins/`
+* Then, you should be able to run a small web server.
+    * `python -m SimpleHTTPServer 8080`
+* Please note that this way, you will need to keep the terminal open. If you wish to make it persistant, you need to kill any server on the port you want to serve the Dashbord ( i.e port 8080 in this case ) and then relaunch on with this command.
+    * `nohup python -m SimpleHTTPServer 8080 &`
+    * To kill it, type `pkill python`
+
+Then, open your browser and go to <http://localhost:8080>.
+You can also try it out at <http://n07070.github.io/Dashboard> (not updated)
 
 ## Plugins
 
